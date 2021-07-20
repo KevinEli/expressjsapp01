@@ -1,0 +1,30 @@
+<%- include('template/cabecera', {tituloweb: 'Inicio EJS por parciales' }); %>
+
+    <div class="container">
+        <% if (arrayMascotas.length> 0) { %>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% arrayMascotas.forEach(mascota=> { %>
+                        
+                        <tr>
+                            <th scope="row"><%= mascota.id %> </td>
+                            <td><%= mascota.nombre %></td>
+                            <td>@<%= mascota.descripcion %></td>
+                            <th></th>
+                        </tr>
+
+                    <% }) %>
+
+                </tbody>
+            </table>
+            <% } %>
+    </div>
+    <%- include('template/footer'); %>

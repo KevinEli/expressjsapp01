@@ -10,13 +10,10 @@ app.set("views", __dirname + "/views");
 //middleware
 app.use(express.static(__dirname + "/public"));
 
-app.get("/", (req, res) => {
-  res.render("index", { titulo: "Titulo Dinámico Ejs" });
-});
+//Rutas de la aplicación
+app.use("/", require("./Routes/routeSite"));
 
-app.get("/servicios", (req, res) => {
-    res.render("servicios", { tituloServicios: "Titulo Dinámico desde Servicios" });
-  });
+app.use("/mascotas", require("./Routes/mascotas"));
 
 app.use((req, res, next) => {
    // res.status(404).send("Sorry cant find that!");
